@@ -5,11 +5,15 @@ b = "#".join(list1)
 print(b)
 
 print("{0:=^25}".format("Q2 딕셔너리 값 추출하기"))
-try:
-	a = {"A":90, "B":80}
-	print(a["C"])
-except:
-	print("70")
+#	내 풀이
+# try:
+# 	a = {"A":90, "B":80}
+# 	print(a["C"])
+# except:
+# 	print("70")
+#	모범 답안
+a = {"A":90, "B":80}
+print(a.get("C", 70))	# get 함수의 default value 기능 활용
 
 print("{0:=^25}".format("Q3 리스트의 더하기와 extend 함수"))
 a = [1,2,3]
@@ -139,29 +143,62 @@ print("{0:=^25}".format("Q13 DashInsert 함수"))
 # DashInsert(input1)
 
 print("{0:=^25}".format("Q14 문자열 압축하기"))
-input1 = input("문자열 입력 : ")
+# input1 = input("문자열 입력 : ")
 
-def DataZip(pStr):
-	prevCnt = 0
-	prevChar = ""
-	rtn = ""
-	for i in range(0, len(pStr)):
-		print(pStr[i])
-		if prevChar == "":
-			prevChar = pStr[i]
-			prevCnt = 1
-			continue
+# def DataZip(pStr):
+# 	prevCnt = 0
+# 	prevChar = ""
+# 	rtn = ""
+# 	for i in range(0, len(pStr)):
+# 		print(pStr[i])
+# 		if prevChar == "":
+# 			prevChar = pStr[i]
+# 			prevCnt = 1
+# 			continue
 
-		if prevChar == pStr[i]:
-			prevCnt += 1
-		else:
-			rtn += prevChar + str(prevCnt)
-			prevChar = pStr[i]
-			prevCnt = 1
+# 		if prevChar == pStr[i]:
+# 			prevCnt += 1
+# 		else:
+# 			rtn += prevChar + str(prevCnt)
+# 			prevChar = pStr[i]
+# 			prevCnt = 1
 
-		if i == len(pStr) - 1:
-			rtn += pStr[i] + str(prevCnt)
+# 		if i == len(pStr) - 1:
+# 			rtn += pStr[i] + str(prevCnt)
 
-	print(rtn)
+# 	print(rtn)
 
-DataZip(input1)
+# DataZip(input1)
+
+print("{0:=^25}".format("Q15 숫자 중복 확인"))
+# listInput = input("숫자 문자열 입력 : ").split(" ")
+
+# def isNonDuplicate(pStr):
+# 	bResult = True
+
+# 	if len(pStr) != 10:
+# 		print(False)
+# 	else:
+# 		for i in range(0, 10):
+# 			#print(str(i),":",pStr[i])
+# 			if str(i) != pStr[i] : 
+# 				bResult = False
+# 				break
+# 		print(bResult)
+
+# for i in listInput : isNonDuplicate(i)
+
+print("{0:=^25}".format("Q16 모스 부호 해독"))
+#	알파벳 별 분기 처리, 공백 1개는 다음 글자, 공백 2개는 띄어쓰기
+#	세부 로직은 생략
+#	모범 답안 : 알파벳 별 분기가 아닌 Dict 활용, 실제로 구현해보자
+
+print("{0:=^25}".format("Q17 정규식"))
+#	1번?
+
+print("{0:=^25}".format("Q18 문자열 검색"))
+#	2 + 7 = 9
+
+print("{0:=^25}".format("Q19 그루핑"))
+
+print("{0:=^25}".format("Q20 전방 탐색"))
