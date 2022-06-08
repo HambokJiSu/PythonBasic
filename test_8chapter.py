@@ -78,3 +78,90 @@ f.write("\nAverage : " + str(iSum / len(list1)))
 f.close()
 
 print("{0:=^25}".format("Q10 사칙연산 계산기"))
+
+class Calculator:
+
+	def __init__(self, pList):
+		self.pList = pList	#	self는 Calculator 클래스 선언자 ex) a = Calculator() 에서 a에 해당
+
+	def sum(self):
+		iSum = 0
+		for i in self.pList : iSum += i
+		return iSum
+
+	def avg(self):
+		iSum = 0
+		for i in self.pList : iSum += i
+		return iSum / len(self.pList)
+
+cal1 = Calculator([1,2,3,4,5])
+print(cal1.sum())
+print(cal1.avg())
+
+cal2 = Calculator([6,7,8,9,10])
+print(cal2.sum())
+print(cal2.avg())
+
+print("{0:=^25}".format("Q11 모듈 사용 방법"))
+#	mymod 모듈 사용 방법
+#	import mymod
+#	from mymod import *
+#	from mymod import 열거
+
+print("{0:=^25}".format("Q12 오류와 예외 처리"))
+print("7, 첫행에서 Index Error가 유발되어 다른 예외는 무시되고 finally가 수행되어 3과 4가 추가됨")
+
+print("{0:=^25}".format("Q13 DashInsert 함수"))
+#	홀수가 연속되면 두 수 사이에 -를 추가하고 짝수가 연속되면 *를 추가하는 기능
+# input1 = input("숫자로된 문자열 입력 : ")
+
+# def DashInsert(pStr):
+# 	char1 = "-"
+# 	char2 = "*"
+# 	mod1 = -1
+# 	mod2 = -1
+# 	rtn = ""
+# 	for i in range(1, len(pStr)):
+# 		print(pStr[i-1] + " : " + pStr[i])
+# 		mod1 = int(pStr[i - 1]) % 2
+# 		mod2 = int(pStr[i]) % 2
+
+# 		if(mod1 + mod2 == 0 or mod1 + mod2 == 2):
+# 			rtn += pStr[i - 1] + (char1 if mod1 + mod2 == 2 else char2)
+# 		else:
+# 			rtn += pStr[i - 1]
+
+# 		if(i == len(pStr) - 1):
+# 			rtn += pStr[i]
+		
+# 	print(rtn)
+
+# DashInsert(input1)
+
+print("{0:=^25}".format("Q14 문자열 압축하기"))
+input1 = input("문자열 입력 : ")
+
+def DataZip(pStr):
+	prevCnt = 0
+	prevChar = ""
+	rtn = ""
+	for i in range(0, len(pStr)):
+		print(pStr[i])
+		if prevChar == "":
+			prevChar = pStr[i]
+			prevCnt = 1
+			continue
+
+		if prevChar == pStr[i]:
+			prevCnt += 1
+		else:
+			rtn += prevChar + str(prevCnt)
+			prevChar = pStr[i]
+			prevCnt = 1
+
+		if i == len(pStr) - 1:
+			rtn += pStr[i] + str(prevCnt)
+
+	print(rtn)
+
+DataZip(input1)
