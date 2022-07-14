@@ -14,3 +14,11 @@ if(__name__ == "__main__"):	#	직접 이 파일을 수행했을 때만 정의하
 	#	return 없이 동작
 	result = ufn_add2(3, 4)
 	print(result)
+
+	print("{0:=^25}".format("def 리턴 명시 Test"))
+	# def 명시적인 선언값과 다른 값을 리턴하면? 상관없이 돌아간다. 주석 정도의 느낌.
+	def rtnInt() -> str:
+		return "string"
+
+	r = rtnInt()
+	print(r)
