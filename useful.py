@@ -60,3 +60,16 @@ print("{0:=^25}".format("enumerate"))
 arr1 = ['body', 'foo', 'bar']
 for i, name in enumerate(arr1):
     print(i, name)  #   0 body, 1 foo, 2 bar
+
+#   리스트의 모든 조합 구하기
+print("{0:=^25}".format("itertools"))
+import itertools
+
+arr1 = [1, 2, 3]
+#   permutations(array, n) : array에 대해 n개에 대한 조합 (순서 상관)
+rst = list(itertools.permutations(arr1, 2))
+print(rst)  #   [(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]
+
+#   combinations(array, n) : array에 대해 n개에 대한 조합 (순서 무관)
+rst = list(itertools.combinations(arr1, 2))
+print(rst)  #   [(1, 2), (1, 3), (2, 3)]
