@@ -73,3 +73,62 @@ print(rst)  #   [(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]
 #   combinations(array, n) : array에 대해 n개에 대한 조합 (순서 무관)
 rst = list(itertools.combinations(arr1, 2))
 print(rst)  #   [(1, 2), (1, 3), (2, 3)]
+
+print("{0:=^25}".format("join : 리스트 문자열 합치기"))
+
+list1 = ["1", "3", "5", "6", "7", "9"]
+print("".join(list1))
+print("-".join(list1))  #   공백 이외의 문자 입력 시 리스트 사이에 해당 문자 출력
+
+list2 = [1, 3, 5, 6, 7, 9]
+#   리스트 내용이 문자열이 아니면 오류 발생!!!!
+#   map 활용하여 문자열로 변환 후 처리하자
+list2 = list(map(lambda i:str(i), list2))
+print("".join(list2))
+
+print("{0:=^25}".format("리스트 내포"))
+
+list1 = [1,2,3,4,5,6]
+list2 = [5,6,7,8,9]
+
+_list1 = [i for i in list1 if i not in list2]
+_list2 = [i for i in list2 if i not in list1]
+
+print(_list1)
+print(_list2)
+
+list3 = [i for i in range(1, 10)]
+print(list3)
+
+list4 = [i + j for i in range(1, 10) if i % 3 == 0 for j in range(1, 10) if j % 2 == 0]
+print(list4)
+
+print("{0:=^25}".format("n진법 변환"))
+
+def convert_iter(num, base):
+    
+    tmp = ''
+    while num:
+        tmp = str(num%base) + tmp
+        num //= base
+    return tmp
+
+rst = convert_iter(10, 3)	#	10진법 to 3진법
+print(rst)
+
+rst2 = int(rst, 3)			#	3진법 to 10진법
+print(rst2)
+
+print("{0:=^25}".format("소수(Prime Number) 구하기"))
+
+from math import sqrt
+def primenumber(x):
+	for i in range(2, int(sqrt(x) + 1)):   # 2부터 x의 제곱근까지의 숫자
+		if x % i == 0:  # 나눠떨어지는 숫자가 있으면 소수가 아님
+			return False
+	return True
+
+print(primenumber(7))
+print(primenumber(10))
+print(primenumber(12))
+print(primenumber(13))
